@@ -5,8 +5,6 @@
  */
 package picpay;
 
-import Models.Login;
-
 /**
  *
  * @author Everton
