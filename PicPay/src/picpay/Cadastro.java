@@ -54,53 +54,53 @@ public class Cadastro extends JFrame {
         Button();
     }
 
-    public void Label() {
+    private void Label() {
         jlCadastro0.setFont(new Font("arial", 4, 35));
         jlCadastro0.setBounds(140, 45, 160, 40);
         jlCadastro0.setVisible(true);
 
         add(jlCadastro0);
         jlCadastro.setFont(new Font("arial", 1, 14));
-        jlCadastro.setBounds(55, 122, 190, 40);
+        jlCadastro.setBounds(55, 112, 190, 40);
         jlCadastro.setVisible(true);
         add(jlCadastro);
         jlCadastro2.setFont(new Font("arial", 1, 14));
-        jlCadastro2.setBounds(10, 162, 190, 40);
+        jlCadastro2.setBounds(10, 152, 190, 40);
         jlCadastro2.setVisible(true);
         add(jlCadastro2);
         jlCadastro5.setFont(new Font("arial", 1, 14));
-        jlCadastro5.setBounds(71, 202, 190, 40);
+        jlCadastro5.setBounds(71, 192, 190, 40);
         jlCadastro5.setVisible(true);
         add(jlCadastro5);
         jlCadastro3.setFont(new Font("arial", 1, 14));
-        jlCadastro3.setBounds(55, 243, 190, 40);
+        jlCadastro3.setBounds(55, 233, 190, 40);
         jlCadastro3.setVisible(true);
         add(jlCadastro3);
         jlCadastro4.setFont(new Font("arial", 1, 14));
-        jlCadastro4.setBounds(30, 283, 190, 40);
+        jlCadastro4.setBounds(30, 273, 190, 40);
         jlCadastro4.setVisible(true);
         add(jlCadastro4);
     }
 
-    public void Input() {
+    private void Input() {
 
-        jtCadastro.setBounds(210, 135, 180, 20);
+        jtCadastro.setBounds(210, 125, 180, 20);
         jtCadastro.setVisible(true);
         add(jtCadastro);
 
-        jtCadastro1.setBounds(210, 175, 180, 20);
+        jtCadastro1.setBounds(210, 165, 180, 20);
         jtCadastro1.setVisible(true);
         add(jtCadastro1);
 
-        jtCadastro2.setBounds(210, 215, 180, 20);
+        jtCadastro2.setBounds(210, 205, 180, 20);
         jtCadastro2.setVisible(true);
         add(jtCadastro2);
 
-        jpCadastro.setBounds(210, 255, 180, 20);
+        jpCadastro.setBounds(210, 245, 180, 20);
         jpCadastro.setVisible(true);
         add(jpCadastro);
 
-        jpCadastro2.setBounds(210, 295, 180, 20);
+        jpCadastro2.setBounds(210, 285, 180, 20);
         jpCadastro2.setVisible(true);
         add(jpCadastro2);
 
@@ -113,15 +113,15 @@ public class Cadastro extends JFrame {
 
     }
 
-    public void Button() {
-        jbCadastro.setBounds(163, 350, 120, 20);
+    private void Button() {
+        jbCadastro.setBounds(163, 335, 120, 20);
         jbCadastro.setCursor(new Cursor(Cursor.HAND_CURSOR));
         jbCadastro.setBackground(Color.decode("#00c266"));
         jbCadastro.setBorderPainted(false);;
         jbCadastro.setVisible(true);
         add(jbCadastro);
         jbCadastro2.setToolTipText("Criar Conta");
-        jbCadastro2.setBounds(163, 395, 120, 20);
+        jbCadastro2.setBounds(163, 365, 120, 20);
         jbCadastro2.setBorderPainted(false);
         jbCadastro2.setBackground(Color.decode("#eeeeee"));
         jbCadastro2.setContentAreaFilled(false);
@@ -186,6 +186,7 @@ public class Cadastro extends JFrame {
                 }
             } else {
                 dispose();
+                System.gc();
                 new Login();
                 JOptionPane pane = new JOptionPane("Usuario Cadastrado \nJá pode fazer o seu Login");
                 JDialog dialog = pane.createDialog("Bem-Vindo");

@@ -13,7 +13,7 @@ public class PicPay {
 
   
     public static void main(String[] args) {
-        new Login();
+        new Menu();
     }
     
 }
