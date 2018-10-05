@@ -5,15 +5,16 @@
  */
 package picpay;
 
+
+
 /**
  *
  * @author Everton
  */
-public class PicPay {
+public class PicPay  {
 
   
     public static void main(String[] args) {
-        new Menu();
-    }
-    
+        new Login();
+    } 
 }

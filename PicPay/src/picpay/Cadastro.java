@@ -20,26 +20,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import picpay.Views.ICadastro;
+
 
 /**
  *
  * @author Everton
  */
-public class Cadastro extends JFrame {
+public class Cadastro extends JFrame implements ICadastro, FocusListener, ActionListener{
 
-    JLabel jlCadastro0 = new JLabel("Cadastro");
-    JLabel jlCadastro = new JLabel("Digite seu Nome:");
-    JLabel jlCadastro2 = new JLabel("Digite seu Sobrenome:");
-    JLabel jlCadastro3 = new JLabel("Digite sua Senha:");
-    JLabel jlCadastro4 = new JLabel("Confirme sua Senha:");
-    JLabel jlCadastro5 = new JLabel("Digite seu CPF:");
-    JTextField jtCadastro = new JTextField("");
-    JTextField jtCadastro1 = new JTextField("");
-    JTextField jtCadastro2 = new JTextField("");
-    JPasswordField jpCadastro = new JPasswordField("");
-    JPasswordField jpCadastro2 = new JPasswordField("");
-    JButton jbCadastro = new JButton("Criar Conta");
-    JButton jbCadastro2 = new JButton("Fazer Login");
+   
 
     public Cadastro() {
         super("Cadastro - PicPay");
@@ -104,12 +94,12 @@ public class Cadastro extends JFrame {
         jpCadastro2.setVisible(true);
         add(jpCadastro2);
 
-        TextFieldHandler handler = new TextFieldHandler();
-        jtCadastro.addFocusListener(handler);
-        jtCadastro1.addFocusListener(handler);
-        jtCadastro2.addFocusListener(handler);
-        jpCadastro.addFocusListener(handler);
-        jpCadastro2.addFocusListener(handler);
+       
+        jtCadastro.addFocusListener(this);
+        jtCadastro1.addFocusListener(this);
+        jtCadastro2.addFocusListener(this);
+        jpCadastro.addFocusListener(this);
+        jpCadastro2.addFocusListener(this);
 
     }
 
@@ -128,12 +118,12 @@ public class Cadastro extends JFrame {
         jbCadastro2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(jbCadastro2);
 
-        ButtonHandler handler = new ButtonHandler();
-        jbCadastro.addActionListener(handler);
-        jbCadastro2.addActionListener(handler);
+        
+        jbCadastro.addActionListener(this);
+        jbCadastro2.addActionListener(this);
     }
 
-    private class TextFieldHandler implements FocusListener {
+   
 
         @Override
         public void focusGained(FocusEvent fe) {
@@ -166,9 +156,10 @@ public class Cadastro extends JFrame {
                 jpCadastro2.setBorder(new LineBorder(Color.decode("#a8a8a8"), 1));
             }
         }
-    }
 
-    private class ButtonHandler implements ActionListener {
+   
+        
+   
 
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -178,7 +169,7 @@ public class Cadastro extends JFrame {
 
                 if (dialogResult == 0) {
                     dispose();
-                    System.gc();
+                 
                     new Login();
                     System.out.println("Yes option");
                 } else {
@@ -186,15 +177,21 @@ public class Cadastro extends JFrame {
                 }
             } else {
                 dispose();
-                System.gc();
+               
                 new Login();
                 JOptionPane pane = new JOptionPane("Usuario Cadastrado \nJá pode fazer o seu Login");
                 JDialog dialog = pane.createDialog("Bem-Vindo");
-
                 dialog.setVisible(true);
                 dialog.setLocationRelativeTo(null);
+                int dialogo = JOptionPane.OK_OPTION;
+                if (dialogo == 0){
+                    dialog.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                    System.out.println("Yes option");
+                }
             }
+
         }
 
     }
-}
+   
+

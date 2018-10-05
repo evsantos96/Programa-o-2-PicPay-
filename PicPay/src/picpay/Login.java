@@ -22,25 +22,23 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+
+
+
 /**
  *
  * @author Everton
  */
-public class Login extends JFrame {
+public class Login extends JFrame implements FocusListener, ActionListener{
 
-    JButton jbLogin = new JButton("Criar Conta");
-    JButton jbLogin2 = new JButton("Login");
-    JLabel jlLogin = new JLabel("Login");
-    JLabel jlLogin2 = new JLabel("Email:");
-    JLabel jlLogin3 = new JLabel("Senha:");
-
-    JTextField jtLogin = new JTextField("PicPay2018@mail.com");
-    JPasswordField jpLogin = new JPasswordField("Picp");
-
-    /**
-     * Colocando atributos ao jframe e incicializando os outros metodos
-     * presentes no mesmo.
-     */
+   public JButton jbLogin = new JButton("Criar Conta");
+   public JButton jbLogin2 = new JButton("Login");
+   public JLabel jlLogin = new JLabel("Login");
+   public JLabel jlLogin2 = new JLabel("Email:");
+   public JLabel jlLogin3 = new JLabel("Senha:");
+   public JTextField jtLogin = new JTextField("PicPay2018@mail.com");
+   public JPasswordField jpLogin = new JPasswordField("Picp");
+   
     public Login() {
 
         super("Bem-Vindo ao PicPay");
@@ -75,9 +73,8 @@ public class Login extends JFrame {
         add(jbLogin);
         add(jbLogin2);
 
-        ButtonHandler Cadastro = new ButtonHandler();
-        jbLogin.addActionListener(Cadastro);
-        jbLogin2.addActionListener(Cadastro);
+        jbLogin.addActionListener(this);
+        jbLogin2.addActionListener(this);
 
     }
 
@@ -108,14 +105,13 @@ public class Login extends JFrame {
         add(jtLogin);
         add(jpLogin);
 
-        TextFieldHandler handler = new TextFieldHandler();
-
-        jtLogin.addFocusListener(handler);
-        jpLogin.addFocusListener(handler);
+        
+        jtLogin.addFocusListener(this);
+        jpLogin.addFocusListener(this);
 
     }
 
-    private class ButtonHandler implements ActionListener {
+   
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -124,8 +120,7 @@ public class Login extends JFrame {
                 int dialogResult = JOptionPane.showConfirmDialog(null, "Deseja Criar Conta?", "Criar Conta", dialogButton);
 
                 if (dialogResult == 0) {
-                    dispose();
-                    System.gc();
+                    dispose(); 
                     new Cadastro();
                     System.out.println("Yes option");
                 } else {
@@ -133,18 +128,18 @@ public class Login extends JFrame {
                 }
             } else {
                 dispose();
-                
                 new Menu();
-                System.gc();
+               
                 JOptionPane pane = new JOptionPane("Bem-VIndo Usuario");
                 JDialog dialog = pane.createDialog("Bem-Vindo");
                 dialog.setVisible(true);
                 dialog.setLocationRelativeTo(null);
             }
         }
-    }
 
-    private class TextFieldHandler implements FocusListener {
+   
+
+   
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -182,4 +177,4 @@ public class Login extends JFrame {
 
     }
 
-}
+
